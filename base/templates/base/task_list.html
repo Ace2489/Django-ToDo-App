@@ -3,10 +3,12 @@
 <table>
 <tr>
     <th>Task Name</th>
+    <th>Task Description</th>
 </tr>
 {% for task in task_list %}
     <tr>
         <td>{{task.Title}}</td>
+        <td><a href="/{{task.id}}">Click for Description</a></td>
     </tr>
 {% endfor %}
 </table>
