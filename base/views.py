@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from django.urls import reverse, reverse_lazy
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .forms import TaskForm
 from .models import Task
 
@@ -57,3 +57,15 @@ def updateTask(request, pk):
             form.save() 
             return redirect(reverse('tasks'))
     return render(request, 'base/task_form.html', {'form':form})
+
+class TaskDelete(DeleteView):
+    model = Task
+    success_url = reverse_lazy('tasks')
+    context_object_name = 'Task'
+
+def deleteTask(request, pk):
+    task = Task.objects.get(id = pk)
+    if request.method == 'POST':
+        task.delete()
+        return redirect(reverse('tasks'))
+    return render(request, 'base/task_confirm_delete.html', {'task':task})
