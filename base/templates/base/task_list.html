@@ -1,14 +1,17 @@
-<h1>These are the tasks in the system</h1>
-
+<h1>These are the tasks in the system:</h1>
+<a href = "{% url 'create' %}">Create Task</a>
 <table>
 <tr>
     <th>Task Name</th>
     <th>Task Description</th>
 </tr>
+
 {% for task in task_list %}
     <tr>
         <td>{{task.Title}}</td>
-        <td><a href="/{{task.id}}">Click for Description</a></td>
+        <td><a href="{% url 'details' task.id %}">Description</a></td>
+        <td><a href ="{% url 'update' task.id %}">Update</a></td>
+        
     </tr>
 {% endfor %}
 </table>

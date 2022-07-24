@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from django.urls import reverse, reverse_lazy
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from .forms import TaskForm
 from .models import Task
 
@@ -40,3 +40,20 @@ def createTask(request):
         form = TaskForm()
     context = {'form':form}
     return render(request, 'task_form.html', context)
+
+class TaskUpdate(UpdateView):
+    model = Task
+    fields = '__all__'
+    success_url = reverse_lazy('tasks')
+    context_object_name = 'form'
+
+
+def updateTask(request, pk):
+    task = Task.objects.get(id = pk)
+    form = TaskForm(instance=task)
+    if request.method == 'POST':
+        form = TaskForm(request.POST, instance=task)
+        if form.is_valid():
+            form.save() 
+            return redirect(reverse('tasks'))
+    return render(request, 'base/task_form.html', {'form':form})

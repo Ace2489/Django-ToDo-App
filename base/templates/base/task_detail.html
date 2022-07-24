@@ -1,1 +1,6 @@
-<h2>{{task}}</h2>
+<h2>{{task.Description}}</h2>
+{% if task.Completed %}
+    <h2>This task has been completed.</h2>
+{% else %}
+    <h2>This task has not been completed.</h2>
+{% endif %}
