@@ -6,29 +6,14 @@ from .models import Task
 
 
 # Create your views here.
-class TaskList(ListView):
-    model = Task
-    context_object_name = 'task_list'
-
-
 def getTasks(request):
     Tasks = Task.objects.all()
-    return render(request, 'tasks.html', {'Tasks':Tasks})
-
-
-class TaskDetails(DetailView):
-    model = Task
-    context_object_name = 'task'
+    return render(request, 'base/task_list.html', {'task_list':Tasks})
 
 def getTaskDetails(request, pk):
     task = Task.objects.get(id = pk)
-    return render(request, 'task_detail.html', {'task':task})
+    return render(request, 'base/task_detail.html', {'task':task})
 
-class TaskCreate(CreateView):
-    model = Task
-    fields = '__all__'
-    success_url = reverse_lazy('tasks')
-    context_object_name = 'form'
 
 def createTask(request):
     if request.method == 'POST':
@@ -39,13 +24,7 @@ def createTask(request):
     else:
         form = TaskForm()
     context = {'form':form}
-    return render(request, 'task_form.html', context)
-
-class TaskUpdate(UpdateView):
-    model = Task
-    fields = '__all__'
-    success_url = reverse_lazy('tasks')
-    context_object_name = 'form'
+    return render(request, 'base/task_form.html', context)
 
 
 def updateTask(request, pk):
@@ -58,10 +37,6 @@ def updateTask(request, pk):
             return redirect(reverse('tasks'))
     return render(request, 'base/task_form.html', {'form':form})
 
-class TaskDelete(DeleteView):
-    model = Task
-    success_url = reverse_lazy('tasks')
-    context_object_name = 'Task'
 
 def deleteTask(request, pk):
     task = Task.objects.get(id = pk)
