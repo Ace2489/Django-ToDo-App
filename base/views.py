@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from django.urls import reverse, reverse_lazy
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.contrib.auth import logout
 from .forms import TaskForm
 from .models import Task
 
@@ -11,7 +11,7 @@ def getTasks(request):
     return render(request, 'base/task_list.html', {'task_list':Tasks})
 
 def getTaskDetails(request, pk):
-    task = Task.objects.get(id = pk)
+    task = Task.objectsw.get(id = pk)
     return render(request, 'base/task_detail.html', {'task':task})
 
 
@@ -44,3 +44,7 @@ def deleteTask(request, pk):
         task.delete()
         return redirect(reverse('tasks'))
     return render(request, 'base/task_confirm_delete.html', {'task':task})
+
+def logout_user(request):
+    logout(request)
+    return redirect(reverse('tasks'))

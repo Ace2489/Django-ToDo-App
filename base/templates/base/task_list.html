@@ -1,4 +1,6 @@
 <h1>Welcome, {{user}}</h1>
+<p><a href="{% url 'logout' %}">Logout</a></p>
+
 <h2>These are the tasks in the system:</h2>
 <a href = "{% url 'create' %}">Create Task</a>
 <table>
