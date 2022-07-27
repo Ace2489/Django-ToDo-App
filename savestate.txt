@@ -1,2 +1,6 @@
 working on signup, login, and logout(Done) of user
-Working on restoring back to the previous state, because python packages/modules wahala is a mess
+Working on restoring back to the previous state, because python packages/modules wahala is a mess (DONE)
+Working on logout(DONE)
+Working on logging in(DONE)
+Working on signup of a user(DONE)
+Link the appropriate files in the HTML

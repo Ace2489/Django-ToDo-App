@@ -3,12 +3,14 @@ from django.urls import reverse, reverse_lazy
 from django.contrib.auth import logout, authenticate, login
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.decorators import login_required
 from .forms import TaskForm
 from .models import Task
 
 
 # Create your views here.
 #Tasks
+@login_required
 def getTasks(request):
     Tasks = Task.objects.all()
     return render(request, 'base/task_list.html', {'task_list':Tasks})
@@ -60,7 +62,7 @@ def signup(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect(reverse('tasks'))
+            return redirect(reverse('login'))
     else:
         form = UserCreationForm()
     context = {'form':form}
