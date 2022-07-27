@@ -12,17 +12,19 @@ from .models import Task
 #Tasks
 @login_required
 def getTasks(request):
-    Tasks = Task.objects.all()
+    Tasks = Task.objects.all().filter(User_id = request.user.id)
     return render(request, 'base/task_list.html', {'task_list':Tasks})
 
+
+@login_required
 def getTaskDetails(request, pk):
-    task = Task.objectsw.get(id = pk)
+    task = Task.objects.get(id = pk)
     return render(request, 'base/task_detail.html', {'task':task})
 
 
+@login_required
 def createTask(request):
     if request.method == 'POST':
-        form = TaskForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect(reverse('tasks'))
@@ -32,6 +34,7 @@ def createTask(request):
     return render(request, 'base/task_form.html', context)
 
 
+@login_required
 def updateTask(request, pk):
     task = Task.objects.get(id = pk)
     form = TaskForm(instance=task)
@@ -43,6 +46,7 @@ def updateTask(request, pk):
     return render(request, 'base/task_form.html', {'form':form})
 
 
+@login_required
 def deleteTask(request, pk):
     task = Task.objects.get(id = pk)
     if request.method == 'POST':
@@ -53,6 +57,7 @@ def deleteTask(request, pk):
 
 
 #USERS AND STUFF
+@login_required
 def logout_user(request):
     logout(request)
     return redirect(reverse('login'))
