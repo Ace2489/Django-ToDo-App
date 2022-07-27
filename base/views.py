@@ -1,11 +1,14 @@
 from django.shortcuts import redirect, render
 from django.urls import reverse, reverse_lazy
-from django.contrib.auth import logout
+from django.contrib.auth import logout, authenticate, login
+from django.contrib.auth.views import LoginView
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from .forms import TaskForm
 from .models import Task
 
 
 # Create your views here.
+#Tasks
 def getTasks(request):
     Tasks = Task.objects.all()
     return render(request, 'base/task_list.html', {'task_list':Tasks})
@@ -45,6 +48,35 @@ def deleteTask(request, pk):
         return redirect(reverse('tasks'))
     return render(request, 'base/task_confirm_delete.html', {'task':task})
 
+
+
+#USERS AND STUFF
 def logout_user(request):
     logout(request)
-    return redirect(reverse('tasks'))
+    return redirect(reverse('login'))
+
+def signup(request):
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('tasks'))
+    else:
+        form = UserCreationForm()
+    context = {'form':form}
+    return render(request, 'base/signup.html', context)
+
+def login_page(request):
+    if request.method == "POST":
+        form = AuthenticationForm(data = request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(username= username, password = password)
+            login(request, user)
+            return redirect('tasks')
+    else:
+        form = AuthenticationForm()
+    context = {'form':form}
+    return render(request, 'base/login.html', context)
+
