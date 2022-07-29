@@ -25,11 +25,12 @@ def getTaskDetails(request, pk):
 @login_required
 def createTask(request):
     if request.method == 'POST':
+        form = TaskForm(request.POST)
         if form.is_valid():
-            form.save()
+            form.save() 
             return redirect(reverse('tasks'))
     else:
-        form = TaskForm()
+        form = TaskForm(initial = {'User':request.user.id})
     context = {'form':form}
     return render(request, 'base/task_form.html', context)
 
@@ -62,7 +63,10 @@ def logout_user(request):
     logout(request)
     return redirect(reverse('login'))
 
+
 def signup(request):
+    if request.user.is_authenticated:
+        return redirect(reverse('tasks'))
     if request.method == "POST":
         form = UserCreationForm(request.POST)
         if form.is_valid():
@@ -73,7 +77,10 @@ def signup(request):
     context = {'form':form}
     return render(request, 'base/signup.html', context)
 
+
 def login_page(request):
+    if request.user.is_authenticated:
+        return redirect(reverse('tasks'))
     if request.method == "POST":
         form = AuthenticationForm(data = request.POST)
         if form.is_valid():

@@ -3,4 +3,9 @@ Working on restoring back to the previous state, because python packages/modules
 Working on logout(DONE)
 Working on logging in(DONE)
 Working on signup of a user(DONE)
-Link the appropriate files in the HTML
+Link the appropriate files in the HTML(DONE)
+Separate tasks by user -- allow the logged in user to only see tasks created by him(DONE)
+
+29/07/22 20:30
+Automatically add the current user as the user for the task being created:
+    Expected result: No longer need to set the user for each task manually(DONE 22:58)
