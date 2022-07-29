@@ -9,3 +9,7 @@ Separate tasks by user -- allow the logged in user to only see tasks created by 
 29/07/22 20:30
 Automatically add the current user as the user for the task being created:
     Expected result: No longer need to set the user for each task manually(DONE 22:58)
+
+23:25
+Implement search functionality from the tasklist
+    Expected result: Search bar on the tasks page, lists all tasks with a title that match the query 
