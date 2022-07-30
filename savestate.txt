@@ -15,3 +15,9 @@ Implement search functionality from the tasklist
     Expected result: Search bar on the tasks page, lists all tasks with a title that match the query
     (DONE 30/07/22 15:30)
 
+30/07/2022 16:18
+Start styling the page
+    Expected result: Not sucky-looking page
+
+19:55
+(DONE, KIND OF) I'll come back when I understand HTML and CSS better

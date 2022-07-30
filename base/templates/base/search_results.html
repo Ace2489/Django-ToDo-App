@@ -1,4 +1,9 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+<div class="header-bar">
 <h1>Search</h1>
+</div>
 <p><a href="{% url 'logout' %}">Logout</a></p>
 
 <a href = "{% url 'create' %}">Create Task<p></p></a>
@@ -8,19 +13,14 @@
     <input type="text" name="text" placeholder="Search here!">
     <input type="submit" value="Search">
   </form>
-
+<p></p>
 {% if task_list %}   {# If block to check if the user has any tasks that match in the system#}
 <table>
-<tr>
-    <th>Task Name</th>
-    <th>Task Description</th>
-</tr>
     {% for task in task_list %}
         <tr>
-            <td>{{task.Title}}</td>
-            <td><a href="{% url 'details' task.id %}">Description</a></td>
+            <td><a href="{% url 'details' task.id %}">{{task.Title}}</a></td>
             <td><a href ="{% url 'update' task.id %}">Update</a></td>
-            <td><a href = "{% url 'delete' task.id %}">Delete</a></td>
+            <td><a href = "{% url 'delete' task.id%}">Delete</a></td>
         </tr>
     {% endfor %}
 </table>
@@ -31,3 +31,5 @@
 {% endif %}
 
 <p><a href="{% url 'tasks' %}">Go Back</a></p>
+
+{% endblock content %}

@@ -1,3 +1,10 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+<div class="header-bar">
+    <h1>Task Details</h1>
+    </div>
+    
 <h2>{{task.Description}}</h2>
 {% if task.Completed %}
     <h2>This task has been completed.</h2>
@@ -6,3 +13,5 @@
 {% endif %}
 
 <h3><a href="{% url 'tasks' %}">Return to tasks</a></h3>
+
+{% endblock content %}

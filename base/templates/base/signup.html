@@ -1,4 +1,10 @@
-<h1>User Signup </h1>    
+{% extends 'base/main.html' %}
+
+{% block content %}
+<div class="header-bar">
+  <h1>User Signup </h1>  
+  </div>
+  
 <form method="post">
     {% csrf_token %}
     {{ form.as_p}}
@@ -6,3 +12,5 @@
   </form>
 
 <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+
+{% endblock content %}

@@ -1,31 +1,61 @@
-<h1>Welcome, {{user}}</h1>
-<p><a href="{% url 'logout' %}">Logout</a></p>
+{% extends 'base/main.html' %}
 
-<a href = "{% url 'create' %}">Create Task</a>
-<h2>These are the tasks in the system:</h2>
+{% block content %}
 
+<div class="header-bar">
+    <div>
+        <h1>Hi {{user|title}}</h1>
+        {% if task_list%}
+        <h3>You have {{count}} unfinished task{{count|pluralize}}</h3>
+        {% endif %}
+    </div>
+    <p><a href="{% url 'logout' %}">Logout</a></p>
+</div>
+
+<h2>My To-Do List</h2>
 <form action="{% url 'search' %}" method="GET"> 
-    <input type="text" name="text" placeholder="Search here!">
+    <input type="text" name="text" placeholder="Search tasks in the system!">
     <input type="submit" value="Search">
   </form>
+<p></p>
 
+
+<a href = "{% url 'create' %}">Create Task</a>
+<p></p>
+
+<div id="tasklist" class="task-items-wrapper">
+    {% for task in task_list %}
+
+    <div class="task-wrapper" data-position="{{task.pk}}">
+       <table>
+           <tr>
+               <td>
+                <td><a href="{% url 'details' task.id %}">{{task.Title}}</a></td>
+                <td></td>
+                <td ><a href ="{% url 'update' task.id %}">Update</a></td>
+                <td></td>
+                <td><a href = "{% url 'delete' task.id%}">Delete</a></td>
+               </td>
+           </tr>
+       </table>
+    </div>
+    {% endfor %}
+
+<!-- <h2>Tasks</h2>
 {% if task_list %}   {# If block to check if the user has any tasks in the system#}
 <table>
-<tr>
-    <th>Task Name</th>
-    <th>Task Description</th>
-</tr>
     {% for task in task_list %}
         <tr>
             <td>{{task.Title}}</td>
-            <td><a href="{% url 'details' task.id %}">Description</a></td>
-            <td><a href ="{% url 'update' task.id %}">Update</a></td>
-            <td><a href = "{% url 'delete' task.id %}">Delete</a></td>
+            <td ><a href ="{% url 'update' task.id %}">Update</a></td>
+            <td><a href = "">Delete</a></td>
         </tr>
     {% endfor %}
-</table>
+</table> -->
 
 
 {% else %}
     <p>There are no tasks in the system</p>
 {% endif %}
+
+{% endblock content %}

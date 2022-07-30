@@ -1,6 +1,13 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+<div class = "header-bar">
 <h1>Task Creation/Update Form</h1>    
+</div>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p}}
     <input type="submit" value="Submit">
   </form>
+<a href="{% url 'tasks' %}"><p></p>Go back</a>
+{% endblock content %}

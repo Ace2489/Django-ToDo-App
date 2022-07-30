@@ -13,7 +13,10 @@ from .models import Task
 @login_required
 def getTasks(request):
     Tasks = Task.objects.all().filter(User_id= request.user.id)
-    return render(request, 'base/task_list.html', {'task_list':Tasks})
+    count = Task.objects.all().filter(Completed = False)
+    count = count.filter(User_id = request.user.id)
+    count = len(count)
+    return render(request, 'base/task_list.html', {'task_list':Tasks, 'count': count})
 
 
 @login_required
@@ -53,7 +56,7 @@ def deleteTask(request, pk):
     if request.method == 'POST':
         task.delete()
         return redirect(reverse('tasks'))
-    return render(request, 'base/task_confirm_delete.html', {'task':task})
+    return render(request, 'base/task_confirm_delete.html', {'Task':task})
 
 
 @login_required
