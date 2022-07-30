@@ -12,7 +12,7 @@ from .models import Task
 #Tasks
 @login_required
 def getTasks(request):
-    Tasks = Task.objects.all().filter(User_id = request.user.id)
+    Tasks = Task.objects.all().filter(User_id= request.user.id)
     return render(request, 'base/task_list.html', {'task_list':Tasks})
 
 
@@ -56,6 +56,13 @@ def deleteTask(request, pk):
     return render(request, 'base/task_confirm_delete.html', {'task':task})
 
 
+@login_required
+def searchTask(request):
+    query = request.GET.get('text') or ''
+    result = Task.objects.filter(Title__icontains = query)
+    result = result.filter(User_id = request.user.id)
+    context = {'task_list': result}
+    return render(request, 'base/search_results.html', context= context)
 
 #USERS AND STUFF
 @login_required

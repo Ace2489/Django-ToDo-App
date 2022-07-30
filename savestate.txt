@@ -12,4 +12,6 @@ Automatically add the current user as the user for the task being created:
 
 23:25
 Implement search functionality from the tasklist
-    Expected result: Search bar on the tasks page, lists all tasks with a title that match the query 
+    Expected result: Search bar on the tasks page, lists all tasks with a title that match the query
+    (DONE 30/07/22 15:30)
+

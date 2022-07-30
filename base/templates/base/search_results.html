@@ -1,15 +1,15 @@
-<h1>Welcome, {{user}}</h1>
+<h1>Search</h1>
 <p><a href="{% url 'logout' %}">Logout</a></p>
 
-<a href = "{% url 'create' %}">Create Task</a>
-<h2>These are the tasks in the system:</h2>
+<a href = "{% url 'create' %}">Create Task<p></p></a>
+
 
 <form action="{% url 'search' %}" method="GET"> 
     <input type="text" name="text" placeholder="Search here!">
     <input type="submit" value="Search">
   </form>
 
-{% if task_list %}   {# If block to check if the user has any tasks in the system#}
+{% if task_list %}   {# If block to check if the user has any tasks that match in the system#}
 <table>
 <tr>
     <th>Task Name</th>
@@ -27,5 +27,7 @@
 
 
 {% else %}
-    <p>There are no tasks in the system</p>
+    <p>There are no tasks with that keyword in the system</p>
 {% endif %}
+
+<p><a href="{% url 'tasks' %}">Go Back</a></p>
