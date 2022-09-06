@@ -1,10 +1,10 @@
-working on signup, login, and logout(Done) of user
-Working on restoring back to the previous state, because python packages/modules wahala is a mess (DONE)
+Working on signup, login, and logout(Done) of user
+Working on restoring back to the previous state, because python packages/modules import system is a mess (DONE)
 Working on logout(DONE)
 Working on logging in(DONE)
 Working on signup of a user(DONE)
 Link the appropriate files in the HTML(DONE)
-Separate tasks by user -- allow the logged in user to only see tasks created by him(DONE)
+Separate tasks by user -- allow the logged in user to only see tasks created by them(DONE)
 
 29/07/22 20:30
 Automatically add the current user as the user for the task being created:
