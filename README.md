@@ -7,10 +7,9 @@
 
 <p align="center">
   <a href="#key-features">Key Features</a> •
-  <a href="#Installation-and-setup">Installation and Setup</a> •
+  <a href="#installation-and-setup">Installation and Setup</a> •
+  <a href="#roadmap">Roadmap</a> •
 </p>
-
-![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.gif)
 
 ## Key Features
 
