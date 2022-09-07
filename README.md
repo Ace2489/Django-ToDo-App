@@ -54,7 +54,7 @@ $ python3 manage.py migrate
 #Run the server
 $ python3 manage.py runserver
 ```
-That's it! All you have to do is open up your browser and go to "localhost:8000" to see the website!
+That's it! All you have to do is open up your browser and go to "localhost:8000" to see the website ☻
 
 
 
