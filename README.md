@@ -38,11 +38,14 @@ $ git clone https://github.com/Covenant224/Django-ToDo-App.git
 # Go into the repository
 $ cd Django-ToDo-App
 
-# Create virtual environment(Linux)
+# Create virtual environment
 $ python3 -m venv env
 
-#Activate the environment(Linux)
+#Activate the environment(Linux and Mac)
 $ source env/bin/activate
+
+#Activate the environment(Windows)
+$ env/scripts/activatesource env/bin/activate
 
 #Install the requirements
 $ pip install -r requirements.txt
