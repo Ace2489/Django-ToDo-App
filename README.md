@@ -23,8 +23,8 @@
 
 ## Roadmap
 
-- [x] User Login
-- [x] Postgres Database
+- [x] Implement User Login
+- [x] Connect to Postgres database
 - [ ] Deploy to production
 
 ## Installation and Setup
