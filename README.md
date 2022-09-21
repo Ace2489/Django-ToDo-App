@@ -1,6 +1,6 @@
 
 <h1 align="center">
-  Django To-Do App
+  Django To-do App
 </h1>
 
 <h4 align="center">A to-do app built using the Django framework in Python</h4>
