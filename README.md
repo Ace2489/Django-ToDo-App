@@ -36,7 +36,7 @@ You also need to have a working internet connection for the database connection.
 $ git clone https://github.com/Covenant224/Django-ToDo-App.git 
 
 # Go into the repository
-$ cd Django-ToDo-App
+$ cd Django-Todo-App
 
 # Create virtual environment
 $ python3 -m venv env
