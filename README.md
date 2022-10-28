@@ -33,7 +33,7 @@ You need to have [Python](https://www.python.org/downloads/) installed on your m
 You also need to have a working internet connection for the database connection.
 ```bash
 # Clone this repository into 
-$ git clone https://github.com/Covenant224/Django-ToDo-App.git 
+$ git clone https://github.com/Ace2489/Django-ToDo-App.git 
 
 # Go into the repository
 $ cd Django-Todo-App
