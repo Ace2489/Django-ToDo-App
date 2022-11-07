@@ -17,7 +17,8 @@ Implement search functionality from the tasklist
 
 30/07/2022 16:18
 Start styling the page
-    Expected result: Not sucky-looking page
+    Expected result: Webpages that look presentable
 
 19:55
-(DONE, KIND OF) I'll come back when I understand HTML and CSS better
+(DONE, ONLY FUNCTIONAL) There is quite a bit of work that needs to be done to make these pages 
+actually look presentable. However, this is the most I can achieve with my limited HTML and CSS skills. 
