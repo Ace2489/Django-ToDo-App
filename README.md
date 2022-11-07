@@ -25,7 +25,6 @@
 
 - [x] Implement User Login
 - [x] Connect to Postgres database
-- [ ] Deploy to production
 
 ## Installation and Setup
 You need to have [Python](https://www.python.org/downloads/) installed on your machine to get the site running.
