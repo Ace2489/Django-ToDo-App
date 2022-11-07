@@ -8,7 +8,6 @@
 <p align="center">
   <a href="#key-features">Key Features</a> •
   <a href="#installation-and-setup">Installation and Setup</a> •
-  <a href="#roadmap">Roadmap</a> •
 </p>
 
 ## Key Features
