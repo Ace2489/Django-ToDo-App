@@ -20,12 +20,6 @@
 * User Isolation - Different users are not allowed to see each other's tasks.
 * Database - Uses a remote postgres connection to allow for quick setup process.
 
-
-## Roadmap
-
-- [x] Implement User Login
-- [x] Connect to Postgres database
-
 ## Installation and Setup
 You need to have [Python](https://www.python.org/downloads/) installed on your machine to get the site running.
 
