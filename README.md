@@ -45,7 +45,7 @@ $ python3 -m venv env
 $ source env/bin/activate
 
 #Activate the environment(Windows)
-$ env/scripts/activatesource env/bin/activate
+$ env/scripts/activate 
 
 #Install the requirements
 $ pip install -r requirements.txt
